@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  restApiEndpoint: 'https://private-ff3a9-companyorganisation.apiary-mock.com'
 };

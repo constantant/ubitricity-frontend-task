@@ -1,0 +1,79 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+nav {
+  position: relative;
+  flex-shrink: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.65);
+  white-space: nowrap;
+  min-width: 16rem;
+}
+
+a {
+  display: block;
+  padding: 1rem 2rem;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+a:hover,
+.current {
+  background-color: rgba(97, 172, 44, 0.7);
+}
+
+a:hover span {
+  border-bottom: 1px solid #61ac2c;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex-grow: 1;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+header {
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+h1,
+p {
+  display: inline-block;
+}
+
+.department {
+  position: relative;
+  background-color: rgba(97, 172, 44, 0.7);
+  padding: 1rem;
+  color: #fff;
+}
+
+h1 {
+  margin: 0 1rem 0 0;
+}
+
+p {
+  margin: 0;
+}
+
+.content {
+  display: flex;
+  position: relative;
+  flex-grow: 1;
+  overflow: hidden;
+}

@@ -1,0 +1,32 @@
+<nav>
+  <div
+    class="home"
+    href="javascript:;"
+    [routerLink]="['/']"
+  >
+    <span class="name">{{company?.name}}</span>
+    <span class="description">{{company?.description}}</span>
+  </div>
+  <a
+    class="menu-item"
+    href="javascript:;"
+    *ngFor="let department of departments"
+    [routerLink]="['/' + department.id]"
+    [routerLinkActive]="'current'"
+  >
+    <span>{{department.name}}</span>
+  </a>
+</nav>
+<section>
+  <div class="squares" *ngIf="showSquares">
+    <a
+      href="javascript:;"
+      *ngFor="let department of departments;let i = index"
+      [routerLink]="['/' + department.id]"
+      [class]="'square item-' + i"
+    >
+      <span>{{department.name}}</span>
+    </a>
+  </div>
+  <router-outlet></router-outlet>
+</section>

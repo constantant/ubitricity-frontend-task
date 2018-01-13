@@ -1,0 +1,15 @@
+<section>
+  <div class="position">{{member?.job}}
+    <ng-container *ngIf="isTeamLead"> (Team Leader)</ng-container>
+  </div>
+  <h1>{{title}} {{member?.name}}</h1>
+  <p>{{member?.description}}</p>
+
+  <div *ngIf="member">
+    <div class="skill-title">Skills:</div>
+    <div class="skill" *ngFor="let skill of skills">
+      <div class="skill-name">{{skill.name}}</div>
+      <div class="skill-level">{{skill.level}}</div>
+    </div>
+  </div>
+</section>

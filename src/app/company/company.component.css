@@ -1,0 +1,127 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  flex-shrink: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background-color: rgba(0, 0, 0, 0.65);
+  white-space: nowrap;
+}
+
+.home {
+  min-width: 16rem;
+  padding: 1rem 2rem;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.home:hover {
+  background-color: rgba(97, 172, 44, 0.7);
+}
+
+.name,
+.description {
+  display: block;
+}
+
+.name {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 0.9rem;
+}
+
+.menu-item {
+  display: inline-block;
+  padding: 2rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.menu-item:hover,
+.current {
+  background-color: rgba(0, 95, 44, 0.8);
+}
+
+.menu-item:hover span {
+  border-bottom: 2px solid #61ac2c;
+}
+
+section {
+  position: relative;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.squares {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.square {
+  position: absolute;
+  width: 30%;
+  height: 30%;
+  background-color: rgba(97, 172, 44, 0.7);
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  font-size: 1rem;
+  overflow: hidden;
+}
+
+.square:hover {
+  font-size: 1.1rem;
+  background-color: rgba(0, 95, 44, 0.8);
+
+}
+
+.square::before {
+  display: inline-block;
+  content: ' ';
+  height: 100%;
+  vertical-align: middle;
+}
+
+.square span {
+  display: inline-block;
+  line-height: 1rem;
+  vertical-align: middle;
+}
+
+.item-0 {
+  top: 10%;
+  left: 10%;
+}
+
+.item-1 {
+  top: 35%;
+  left: 35%;
+}
+
+.item-2 {
+  bottom: 10%;
+  right: 10%;
+}

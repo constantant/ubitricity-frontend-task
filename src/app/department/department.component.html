@@ -1,0 +1,31 @@
+<header>
+  <div class="department">
+    <h1>{{department?.name}}</h1>
+    <p>{{department?.description}}</p>
+  </div>
+</header>
+<div class="content">
+  <nav>
+    <a
+      *ngIf="department"
+      href="javascript:;"
+      [routerLink]="['/' + department.id]"
+      [routerLinkActiveOptions]="{exact: true}"
+      [routerLinkActive]="'current'"
+    >
+      {{department.teamLeader.name}} (Team Leader)
+    </a>
+    <a
+      href="javascript:;"
+      *ngFor="let member of members"
+      [routerLink]="['/' + department.id + '/' + member.id]"
+      [routerLinkActive]="'current'"
+    >
+      <span>{{member.name}}</span>
+    </a>
+  </nav>
+  <section>
+    <router-outlet></router-outlet>
+    <app-member *ngIf="showLeaderInfo" [member]="department?.teamLeader" [isTeamLead]="true"></app-member>
+  </section>
+</div>
