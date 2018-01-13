@@ -20,7 +20,7 @@ interface IDepartment {
 }
 
 interface IMember {
-  id: string;
+  id?: string;
   name: string;
   gender: 'M' | 'F';
   job: string;

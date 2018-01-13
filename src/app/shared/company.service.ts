@@ -40,6 +40,13 @@ export class CompanyService {
     );
   }
 
+  putMember(departmentId: string, memberId: string, member: IMember): Observable<IMember> {
+    return this._http.put<IMember>(
+      `${this._host}/company/departments/${departmentId}/members/${memberId}`,
+      member
+    );
+  }
+
   postMember(departmentId: string, member: IMember): Observable<IMember> {
     return this._http.post<IMember>(
       `${this._host}/company/departments/${departmentId}/members`,

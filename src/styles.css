@@ -10,6 +10,9 @@ app-root {
   text-decoration: none;
   padding: 0.3rem 0.5rem;
   border: 1px solid #005F2C;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: Albert, sans-serif;;
 }
 
 .button:hover {

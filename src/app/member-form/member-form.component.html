@@ -1,3 +1,36 @@
-<p>
-  member-form works!
-</p>
+<section *ngIf="form" [formGroup]="form">
+
+  <div class="form-field">
+    <label for="form-name">Name</label>
+    <input id="form-name" formControlName="name" type="text"/>
+  </div>
+  <div class="form-field">
+    <label for="form-gender-m">Male</label>
+    <input id="form-gender-m" formControlName="gender" type="radio" value="M"/>
+    <label for="form-gender-f">Female</label>
+    <input id="form-gender-f" formControlName="gender" type="radio" value="F"/>
+  </div>
+  <div class="form-field">
+    <label for="form-job">Job</label>
+    <input id="form-job" formControlName="job" type="text"/>
+  </div>
+  <div class="form-field">
+    <label for="form-description">Description</label>
+    <textarea id="form-description" formControlName="description"></textarea>
+  </div>
+
+  <div class="form-field">
+    <label>Skills</label>
+    <div class="skill" *ngFor="let skill of form.get('skills').controls;let i = index">
+      <input [formControl]="skill.get('name')" placeholder="Name" type="text"/>
+      <input [formControl]="skill.get('level')" placeholder="Level" type="number"/>
+      <a href="javascript:;" (click)="removeSkill(i)">remove</a>
+    </div>
+    <a href="javascript:;" class="button" (click)="addSkill()">Add a skill</a>
+  </div>
+
+  <div class="form-field">
+    <button class="button" (click)="save()">Save</button>
+    <button class="button" (click)="form.reset()">Reset</button>
+  </div>
+</section>
