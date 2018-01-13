@@ -15,17 +15,18 @@ export const rootRoutes: Routes = [
         children: [
           {
             path: 'add-member',
-            component: MemberFormComponent
+            component: MemberFormComponent,
+            data: {
+              isAddForm: true
+            }
           },
           {
             path: ':memberId',
-            component: MemberComponent,
-            children: [
-              {
-                path: 'edit',
-                component: MemberFormComponent
-              }
-            ]
+            component: MemberComponent
+          },
+          {
+            path: ':memberId/edit',
+            component: MemberFormComponent
           }
         ]
       }

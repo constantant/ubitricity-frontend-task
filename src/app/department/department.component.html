@@ -7,6 +7,7 @@
 <div class="content">
   <nav>
     <a
+      class="menu-item"
       *ngIf="department"
       href="javascript:;"
       [routerLink]="['/' + department.id]"
@@ -16,6 +17,7 @@
       {{department.teamLeader.name}} (Team Leader)
     </a>
     <a
+      class="menu-item"
       href="javascript:;"
       *ngFor="let member of members"
       [routerLink]="['/' + department.id + '/' + member.id]"
@@ -23,6 +25,12 @@
     >
       <span>{{member.name}}</span>
     </a>
+    <a
+      class="button"
+      *ngIf="department"
+      href="javascript:;"
+      [routerLink]="['/' + department.id + '/add-member']"
+    >Add a new member</a>
   </nav>
   <section>
     <router-outlet></router-outlet>

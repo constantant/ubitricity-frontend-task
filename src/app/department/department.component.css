@@ -18,7 +18,7 @@ nav {
   min-width: 16rem;
 }
 
-a {
+.menu-item {
   display: block;
   padding: 1rem 2rem;
   color: #fff;
@@ -26,12 +26,12 @@ a {
   font-size: 1rem;
 }
 
-a:hover,
+.menu-item:hover,
 .current {
   background-color: rgba(97, 172, 44, 0.7);
 }
 
-a:hover span {
+.menu-item:hover span {
   border-bottom: 1px solid #61ac2c;
 }
 
@@ -76,4 +76,8 @@ p {
   position: relative;
   flex-grow: 1;
   overflow: hidden;
+}
+
+.button {
+  margin: 1rem 2rem;
 }

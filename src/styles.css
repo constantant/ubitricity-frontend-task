@@ -2,3 +2,16 @@ app-root {
   font-family: Albert, sans-serif;
   font-size: 16px;
 }
+
+.button {
+  display: inline-block;
+  color: #fff;
+  background-color: #61ac2c;
+  text-decoration: none;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid #005F2C;
+}
+
+.button:hover {
+  background-color: #005F2C;
+}
