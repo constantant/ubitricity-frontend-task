@@ -28,9 +28,8 @@
     </div>
     <a href="javascript:;" class="button" (click)="addSkill()">Add a skill</a>
   </div>
-
-  <div class="form-field">
-    <button class="button" (click)="save()">Save</button>
-    <button class="button" (click)="undo()" [disabled]="!canUndo">Undo</button>
-  </div>
 </section>
+<footer>
+  <button class="button" (click)="save()">Save</button>
+  <button class="button" (click)="undo()" [disabled]="!canUndo">Undo</button>
+</footer>

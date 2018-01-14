@@ -4,7 +4,6 @@ import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute } from '@angular/router';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AbstractControl } from '@angular/forms/src/model';
-import { iteratorToArray } from '@angular/animations/browser/src/util';
 
 @Component({
   selector: 'app-member-form',
