@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CompanyService } from '../shared';
 import { Subscription } from 'rxjs/Subscription';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AbstractControl } from '@angular/forms/src/model';
 
@@ -21,6 +21,7 @@ export class MemberFormComponent implements OnInit, OnDestroy {
 
   constructor(private _companyService: CompanyService,
               private _activatedRoute: ActivatedRoute,
+              private _router: Router,
               private _formBuilder: FormBuilder) {
   }
 
@@ -49,17 +50,30 @@ export class MemberFormComponent implements OnInit, OnDestroy {
       return;
     }
 
+    const departmentId = this._activatedRoute.snapshot.parent.params.departmentId;
     const {job, description, skills, gender, name} = this.form.value;
     const _skills = {};
     (skills as ISkill[]).forEach((skill: ISkill) => {
       _skills[ skill.name ] = skill.level;
     });
+
+    if (this._activatedRoute.snapshot.data.isAddForm) {
+      this._companyService.postMember(
+        departmentId,
+        {job, description, gender, name, skills: _skills}
+      ).subscribe(() => {
+        this._router.navigate([ `/${departmentId}` ]);
+        console.log('POST is successful!');
+      });
+      return;
+    }
+
     this._companyService.putMember(
-      this._activatedRoute.snapshot.parent.params.departmentId,
+      departmentId,
       this._activatedRoute.snapshot.params.memberId,
       {job, description, gender, name, skills: _skills}
     ).subscribe(() => {
-      console.log('success!');
+      console.log('PUT is successful!');
     });
   }
 
