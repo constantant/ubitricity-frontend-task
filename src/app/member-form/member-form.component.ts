@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute } from '@angular/router';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AbstractControl } from '@angular/forms/src/model';
+import { iteratorToArray } from '@angular/animations/browser/src/util';
 
 @Component({
   selector: 'app-member-form',
@@ -14,7 +15,10 @@ export class MemberFormComponent implements OnInit, OnDestroy {
 
   form: FormGroup;
 
+  canUndo = false;
+
   private _dataSubscription: Subscription;
+  private _history;
 
   constructor(private _companyService: CompanyService,
               private _activatedRoute: ActivatedRoute,
@@ -60,6 +64,25 @@ export class MemberFormComponent implements OnInit, OnDestroy {
     });
   }
 
+  undo() {
+    if (!this._history) {
+      return;
+    }
+
+    const skillsForm = this.form.get('skills') as FormArray;
+    const {name, gender, description, job, skills} = this._history;
+    while (skillsForm.length !== 0) {
+      skillsForm.removeAt(0);
+    }
+
+    this.form.setValue({name, gender, description, job, skills: []}, {
+      emitEvent: false
+    });
+
+    (skills as ISkill[]).forEach((skill: ISkill) => this.addSkill(skill));
+    this.canUndo = false;
+  }
+
   addSkill(skill?: ISkill) {
     const skills = this.form.get('skills') as FormArray;
     if (!skill) {
@@ -101,6 +124,9 @@ export class MemberFormComponent implements OnInit, OnDestroy {
       ] ],
       skills: skillsForm
     });
+
+    this._history = this.form.value;
+    this.form.valueChanges.subscribe(() => this.canUndo = true);
   }
 
   private _makeSkillForm(name: string = '', level: number = 0): FormGroup {
@@ -111,7 +137,7 @@ export class MemberFormComponent implements OnInit, OnDestroy {
       ] ],
       level: [ level, [
         Validators.required,
-        (c: AbstractControl) => c.value > 100 ? {error: 'Not match'} : null
+        (c: AbstractControl) => c.value > 100 || c.value < 0 ? {error: 'Not match'} : null
       ] ]
     });
   }

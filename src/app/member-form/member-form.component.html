@@ -31,6 +31,6 @@
 
   <div class="form-field">
     <button class="button" (click)="save()">Save</button>
-    <button class="button" (click)="form.reset()">Reset</button>
+    <button class="button" (click)="undo()" [disabled]="!canUndo">Undo</button>
   </div>
 </section>

@@ -3,6 +3,15 @@ app-root {
   font-size: 16px;
 }
 
+input,
+textarea {
+  font-family: Albert, sans-serif;
+  outline-color: #61ac2c;
+  border: #005F2C solid 1px;
+  padding: 0.6rem;
+  font-size: 1rem;
+}
+
 .button {
   display: inline-block;
   color: #fff;
@@ -17,4 +26,10 @@ app-root {
 
 .button:hover {
   background-color: #005F2C;
+}
+
+.button[disabled] {
+  background-color: #61ac2c;
+  cursor: default;
+  opacity: 0.6;
 }

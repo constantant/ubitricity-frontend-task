@@ -19,3 +19,34 @@ section {
   position: relative;
   margin: 0 0 1rem;
 }
+
+textarea,
+input[type="text"] {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+}
+
+textarea {
+  height: 4rem;
+}
+
+.skill {
+  position: relative;
+  overflow: hidden;
+  margin: 0 0 1rem;
+}
+
+.skill input[type="text"] {
+  width: 30%;
+  max-width: 30%;
+  min-width: 30%;
+  float: left;
+}
+
+.skill input[type="number"] {
+  width: 10%;
+  margin: 0 1rem;
+}
