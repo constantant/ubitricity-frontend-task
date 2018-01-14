@@ -14,7 +14,8 @@
       [routerLinkActiveOptions]="{exact: true}"
       [routerLinkActive]="'current'"
     >
-      {{department.teamLeader.name}} (Team Leader)
+      <span class="full-name">{{department.teamLeader.name}} (Team Leader)</span>
+      <span class="initials">{{department.teamLeader.name | initials}}</span>
     </a>
     <a
       class="menu-item"
@@ -23,14 +24,18 @@
       [routerLink]="['/' + department.id + '/' + member.id]"
       [routerLinkActive]="'current'"
     >
-      <span>{{member.name}}</span>
+      <span class="full-name">{{member.name}}</span>
+      <span class="initials">{{member.name | initials}}</span>
     </a>
     <a
       class="button"
       *ngIf="department"
       href="javascript:;"
       [routerLink]="['/' + department.id + '/add-member']"
-    >Add a new member</a>
+    >
+      <span class="full-name">Add a new member</span>
+      <span class="initials">+</span>
+    </a>
   </nav>
   <section>
     <router-outlet></router-outlet>

@@ -12,6 +12,7 @@ import { DepartmentComponent } from './department/department.component';
 import { MemberComponent } from './member/member.component';
 import { MemberFormComponent } from './member-form/member-form.component';
 import { HttpClientModule } from '@angular/common/http';
+import { InitialsPipe } from './shared/initials.pipe';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     CompanyComponent,
     DepartmentComponent,
     MemberComponent,
-    MemberFormComponent
+    MemberFormComponent,
+    InitialsPipe
   ],
   imports: [
     BrowserModule,

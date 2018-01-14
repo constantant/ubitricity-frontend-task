@@ -35,6 +35,10 @@ nav {
   border-bottom: 1px solid #61ac2c;
 }
 
+.initials {
+  display: none;
+}
+
 section {
   display: flex;
   flex-direction: column;
@@ -80,4 +84,41 @@ p {
 
 .button {
   margin: 1rem 2rem;
+}
+
+@media all and (max-width: 420px) {
+  nav {
+    width: 3rem;
+    min-width: 3rem;
+  }
+
+  .full-name {
+    display: none;
+  }
+
+  .initials {
+    display: inline;
+  }
+
+  .menu-item {
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  .button {
+    margin: 1rem 0.5rem;
+    text-align: center;
+    display: block;
+  }
+}
+
+@media all and (max-height: 420px) {
+  header {
+    padding: 0.5rem 2rem;
+  }
+
+  .department {
+    padding: 0;
+    background: none;
+  }
 }
