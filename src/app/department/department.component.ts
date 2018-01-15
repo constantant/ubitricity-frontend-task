@@ -31,6 +31,7 @@ export class DepartmentComponent implements OnInit {
       const [ department, members ] = data;
 
       this.department = department;
+      members.unshift(department.teamLeader);
       this.members = members;
     });
   }

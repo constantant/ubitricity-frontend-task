@@ -8,23 +8,13 @@
   <nav>
     <a
       class="menu-item"
-      *ngIf="department"
-      href="javascript:;"
-      [routerLink]="['/' + department.id]"
-      [routerLinkActiveOptions]="{exact: true}"
-      [routerLinkActive]="'current'"
-    >
-      <span class="full-name">{{department.teamLeader.name}} (Team Leader)</span>
-      <span class="initials">{{department.teamLeader.name | initials}}</span>
-    </a>
-    <a
-      class="menu-item"
       href="javascript:;"
       *ngFor="let member of members"
-      [routerLink]="['/' + department.id + '/' + member.id]"
+      [routerLink]="['/' + department.id + (member.id ? '/' + member.id : '')]"
+      [routerLinkActiveOptions]="{exact: !member.id}"
       [routerLinkActive]="'current'"
     >
-      <span class="full-name">{{member.name}}</span>
+      <span class="full-name">{{member.name}}<ng-container *ngIf="!member.id"> (Team Leader)</ng-container></span>
       <span class="initials">{{member.name | initials}}</span>
     </a>
     <a
